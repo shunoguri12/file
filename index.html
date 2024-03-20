@@ -1,136 +1,168 @@
 
+
+
+<style>
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 1px 1px 10px #ccc;
+  padding: 60px;
+  border-radius: 25px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu-item {
+  flex-basis: 55%;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+.menu-item:hover {
+  color: white !important;
+  background-color: rgb(34, 202, 110) !important;
+  border: 1px solid transparent !important;
+}
+
+.made-for {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.made-for h1 {
+  margin-bottom: 10px; /* Adjust the space below the heading */
+}
+
+.menu-item:nth-child(2) {
+  margin-left: 10px;
+}
+
+.form {
+  margin-top: 25px;
+}
+
+.input-grp {
+  margin-bottom: 20px;
+}
+
+.input-grp label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-grp input {
+  min-height: 30px;
+  padding: 5px;
+  border: 1px solid rgb(225, 225, 225);
+}
+
+.input-grp input::placeholder {
+  color: rgb(153, 153, 153);
+}
+
+.required {
+  color: rgb(255, 58, 58);
+}
+
+.btn {
+  padding: 10px 25px;
+  border: 0;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(34, 202, 110);
+  border-radius: 25px;
+  cursor: pointer;  
+}
+
+.btn:hover {
+  background-color: rgb(24, 172, 94); /* Adjusted hover color */
+}
+
+.btn-wrapper {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.active {
+  color: white;
+  border: 1px solid transparent;
+  background-color: rgb(34, 202, 110); 
+}
+
+.result {
+  margin-top: 25px;
+  border: 1px solid rgb(225, 225, 225);
+  padding: 15px;
+  border-radius: 25px;
+  text-align: center;
+}
+.container {
+  position: relative;
+}
+
+.logo img {
+  width: 50px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.logo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 10px; /* Adjust as needed */
+  margin-right: 10px; /* Adjust as needed */
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 30px;
+  }
+
+  .menu-item {
+    flex-basis: 100%;
+    margin-top: 10px;
+  }
+}
+</style>
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
+<html lang="en"><head>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interest Calculator</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      outline: none;
-    }
+    
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: sans-serif;
-      font-size: 16px;
-    }
-
-    .container {
-      position: relative;
-      max-width: 600px; /* Adjust maximum width */
-      margin: auto;
-      padding: 20px;
-      box-shadow: 1px 1px 10px #ccc;
-      border-radius: 25px;
-    }
-
-    .logo img {
-      width: 40px; /* Adjust logo size for smaller screens */
-    }
-
-    .menu {
-      display: flex;
-      flex-direction: column; /* Display menu items vertically on smaller screens */
-    }
-
-    .menu-item {
-      flex-basis: auto; /* Allow menu items to grow as needed */
-      text-align: center;
-      padding: 12px;
-      border: 1px solid rgb(223, 223, 223);
-      border-radius: 25px;
-      cursor: pointer;
-      transition: all 0.1s ease-out;
-      margin: 5px 0; /* Adjust margin for smaller screens */
-    }
-
-    .menu-item:hover {
-      color: white !important;
-      background-color: rgb(34, 202, 110) !important;
-      border: 1px solid transparent !important;
-    }
-
-    .form {
-      margin-top: 25px;
-    }
-
-    .input-grp {
-      margin-bottom: 20px;
-    }
-
-    .input-grp label {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .input-grp input {
-      min-height: 30px;
-      padding: 5px;
-      border: 1px solid rgb(225, 225, 225);
-      width: 100%; /* Make input fields full-width */
-    }
-
-    .input-grp input::placeholder {
-      color: rgb(153, 153, 153);
-    }
-
-    .required {
-      color: rgb(255, 58, 58);
-    }
-
-    .btn {
-      padding: 10px 25px;
-      border: 0;
-      font-size: 16px;
-      color: white;
-      background-color: rgb(34, 202, 110);
-      border-radius: 25px;
-      cursor: pointer;  
-    }
-
-    .btn:hover {
-      background-color: rgb(24, 172, 94); /* Adjusted hover color */
-    }
-
-    .btn-wrapper {
-      margin-top: 25px;
-      text-align: center;
-    }
-
-    .result {
-      margin-top: 25px;
-      padding: 15px;
-    }
-
-    /* Media query for smaller screens */
-    @media screen and (max-width: 600px) {
-      .container {
-        padding: 10px;
-      }
-
-      .btn {
-        padding: 8px 20px;
-        font-size: 14px;
-      }
-
-      .result {
-        margin-top: 15px;
-      }
-    }
-  </style>
-</head>
+<style type="text/css" id="operaUserStyle"></style></head>
 <body>
   <div class="container">
-    <div class="made-for">
+   <div class="made-for">
       <h1> Onehorn Community ❤️</h1>
     </div>
     <div class="menu">
@@ -138,9 +170,9 @@
       <div class="menu-item" id="compound-interest" onclick="selectInterestType(1)">Compound Interest</div>
     </div>
     <div class="form">
-      <div class="logo">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJLoLe-gmgONdNDeoVlR04HNZ4NA1QgBAwQevTxqky2nGKlKre6s-O00nDWnG4Rh4rlhyVH6IMD_F6cqGPsFPr3WCYNsVxbtAdCJDYZh1X6XOoS6UECYo1lj23B74Qlk2-lUwC7IAzCJn692ZYCqYuJO4T5M8R7V6YS-x08YJ9Ooummhy6ivT4MjAJmgM/w200-h200/logo.png" alt="Logo">
-      </div>
+	<div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJLoLe-gmgONdNDeoVlR04HNZ4NA1QgBAwQevTxqky2nGKlKre6s-O00nDWnG4Rh4rlhyVH6IMD_F6cqGPsFPr3WCYNsVxbtAdCJDYZh1X6XOoS6UECYo1lj23B74Qlk2-lUwC7IAzCJn692ZYCqYuJO4T5M8R7V6YS-x08YJ9Ooummhy6ivT4MjAJmgM/w200-h200/logo.png" alt="Logo">
+    </div>
       <div class="input-grp">
         <label>Principal Amount<span class="required">*</span></label>
         <input type="text" id="pa" placeholder="for example: ₹1000" autocomplete="off">
@@ -160,9 +192,9 @@
       <div class="btn-wrapper">
         <button class="btn" onclick="calculateAmount()">Calculate</button>
       </div>
-      <div class="result" style="display: none;">
+      <div class="result" style="display: block;">
         <strong>Total Amount:</strong>
-        <span class="total-amount">10,000</span>
+        <span class="total-amount">1100.00</span>
       </div>
     </div>
   </div>
@@ -182,7 +214,131 @@
     function updateInterestFeature() {
       const CIButton = document.getElementById("compound-interest");
       const CIFrequency = document.querySelector(".ci-freq");
-      const screenWidth = window.innerWidth;
+      if (selectedInterest === interestType.si) {
+        CIButton.classList.remove("active");
+        CIFrequency.style.display = 'none';
+      } else {
+        CIButton.classList.add("active");
+        CIFrequency.style.display = 'block';
+      }
+    }
 
-      if (screenWidth < 768) { // Example breakpoint for mobile devices
-        CIFrequency.style.display = 'none'; // Hide compounding frequency for smaller screens
+    function calculateAmount() {
+      const PA = parseFloat(document.getElementById("pa").value);
+      const IR = parseFloat(document.getElementById("ir").value);
+      const DY = parseFloat(document.getElementById("dy").value);
+      let FY = 1;
+      if (selectedInterest === interestType.ci) {
+        FY = parseFloat(document.getElementById("fy").value);
+      }
+
+      if (isNaN(PA) || isNaN(IR) || isNaN(DY) || (selectedInterest === interestType.ci && isNaN(FY))) {
+        alert("All Fields Are Required and Must Be Numeric.");
+        return;
+      }
+
+      let result = 0;
+      if (selectedInterest === interestType.si) {
+        result = PA * (1 + (IR / 100) * DY);
+      } else {
+        result = PA * Math.pow(1 + (IR / 100) / FY, FY * DY);
+      }
+
+      const finalAmount = document.querySelector(".total-amount");
+      finalAmount.textContent = result.toFixed(2);
+
+      const resultWrapper = document.querySelector(".result");
+      resultWrapper.style.display = 'block';
+    }
+  </script>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const interestType = {
+      si: 0,
+      ci: 1
+    };
+    let selectedInterest = interestType.si;
+
+    function selectInterestType(type) {
+      selectedInterest = type;
+      updateInterestFeature();
+    }
+
+    function updateInterestFeature() {
+      const CIButton = document.getElementById("compound-interest");
+      const CIFrequency = document.querySelector(".ci-freq");
+      if (selectedInterest === interestType.si) {
+        CIButton.classList.remove("active");
+        CIFrequency.style.display = 'none';
+      } else {
+        CIButton.classList.add("active");
+        CIFrequency.style.display = 'block';
+      }
+    }
+
+    function calculateAmount() {
+      const PA = parseFloat(document.getElementById("pa").value);
+      const IR = parseFloat(document.getElementById("ir").value);
+      const DY = parseFloat(document.getElementById("dy").value);
+      let FY = 1;
+      if (selectedInterest === interestType.ci) {
+        FY = parseFloat(document.getElementById("fy").value);
+      }
+
+      if (isNaN(PA) || isNaN(IR) || isNaN(DY) || (selectedInterest === interestType.ci && isNaN(FY))) {
+        alert("All Fields Are Required and Must Be Numeric.");
+        return;
+      }
+
+      let result = 0;
+      if (selectedInterest === interestType.si) {
+        result = PA * (1 + (IR / 100) * DY);
+      } else {
+        result = PA * Math.pow(1 + (IR / 100) / FY, FY * DY);
+      }
+
+      const finalAmount = document.querySelector(".total-amount");
+      finalAmount.textContent = result.toFixed(2);
+
+      const resultWrapper = document.querySelector(".result");
+      resultWrapper.style.display = 'block';
+    }
+  </script>
